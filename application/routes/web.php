@@ -20,6 +20,8 @@
 
 Route::get('/', 'welcome@index')->name('homepage');
 
+Route::get('/admin', 'admin/auth@index')->name('admin.login');
+
 Route::set('404_override', function(){
     show_404();
 });
