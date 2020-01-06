@@ -12,6 +12,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
+
+$hook = Luthier\Hook::getHooks();
 $hook['post_controller_constructor'][] = [
     'class'    => 'EloquentHook',
     'function' => 'bootEloquent',

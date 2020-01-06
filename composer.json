@@ -13,7 +13,8 @@
 	"require": {
 		"php": ">=5.3.7",
 		"illuminate/database": "5.1.16",
-		"illuminate/pagination": "~5.0"
+		"illuminate/pagination": "~5.0",
+		"luthier/luthier": "^1.0"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
