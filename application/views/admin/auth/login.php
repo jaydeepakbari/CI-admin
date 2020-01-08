@@ -26,6 +26,13 @@
     <link href="<?= base_url('assets/admin/css/tabler.min.css') ?>" rel="stylesheet"/>
     <link href="<?= base_url('assets/admin/css/tabler-flags.min.css') ?>" rel="stylesheet"/>
     <link href="<?= base_url('assets/admin/css/tabler-payments.min.css') ?>" rel="stylesheet" />
+
+    <link href="<?= base_url('assets/admin/css/app.css') ?>" rel="stylesheet" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="<?= base_url('assets/admin/js/app.js') ?>"></script>
 </head>
 <body class="antialiased border-top-wide border-primary">
     <div class="d-flex h-auto min-h-full justify-content-center">
@@ -33,32 +40,32 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-login mx-auto">
-                        <div class="text-center mb-4">
-                            <img src="<?= base_url('assets/admin') ?>/static/logo.svg" class="h-8" alt="">
+                        <div class="text-center mb-4 mt-4">
+                            <img src="<?= base_url('assets/admin/img/logo-black.png') ?>" class="" alt="">
                         </div>
-                        <form class="card" action="" method="get">
+                        <form class="card" action="<?= route('admin.check_login') ?>" id="login_form" method="post">
                             <div class="card-body p-6">
                                 <div class="card-title">Login to your account</div>
-                                <div class="mb-2">
+                                <div class="mb-2 form-group">
                                     <label class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                     placeholder="Enter email" autocomplete="off">
                                 </div>
-                                <div class="mb-2">
+                                <div class="mb-2 form-group">
                                     <a href="./forgot-password.html" class="float-right small">I forgot password</a>
                                     <label class="form-label">
                                         Password
                                     </label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autocomplete="off">
+                                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autocomplete="off">
                                 </div>
-                                <div class="mb-2">
+                                <!-- <div class="mb-2">
                                     <label class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" ./>
                                         <span class="custom-control-label">Remember me</span>
                                     </label>
-                                </div>
+                                </div> -->
                                 <div class="form-footer">
-                                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                    <button type="submit" class="btn btn-submit btn-primary btn-block">Sign in</button>
                                 </div>
                             </div>
                         </form>
@@ -71,8 +78,23 @@
         </div>
     </div>
 
-    <script src="<?= base_url('assets/admin/libs/jquery/dist/jquery.slim.min.js') ?>"></script>
-    <script src="<?= base_url('assets/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
     <script src="<?= base_url('assets/admin/js/tabler.min.js') ?>"></script>
 </body>
+<script type="text/javascript">
+    $("#login_form").submit(function(){
+        $this = $(this);
+        $.ajax({
+            url:$this.attr("action"),
+            type:'POST',
+            dataType:'json',
+            data:$this.serialize(),
+            beforeSend:function(){ $this.find('.btn-submit').btn("loading"); },
+            complete:function(){ $this.find('.btn-submit').btn("reset"); },
+            success:function(json){
+                json_callback(json,$this);
+            },
+        })
+        return false;
+    })
+</script>
 </html>

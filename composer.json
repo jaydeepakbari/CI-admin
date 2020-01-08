@@ -26,6 +26,7 @@
 	"autoload": {
         "psr-4": {
            "Model\\":"application/models/"
-        }
+        },
+    	"files": ["application/core/Auth.php"]
     }
 }
