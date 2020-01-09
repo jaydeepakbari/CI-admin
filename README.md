@@ -25,7 +25,7 @@ Find file inside database folder and import in your project database
 
 ### Credits
 
-[ingeniasoftware/luthier-ci](https://github.com/ingeniasoftware/luthier-ci "ingeniasoftware/luthier-ci")
-[tabler/tabler](https://github.com/tabler/tabler "tabler/tabler")
-[illuminate/database](https://github.com/illuminate/database "illuminate/database")
-[illuminate/pagination](https://github.com/illuminate/pagination "illuminate/pagination")
+- [ingeniasoftware/luthier-ci](https://github.com/ingeniasoftware/luthier-ci "ingeniasoftware/luthier-ci")
+- [tabler/tabler](https://github.com/tabler/tabler "tabler/tabler")
+- [illuminate/database](https://github.com/illuminate/database "illuminate/database")
+- [illuminate/pagination](https://github.com/illuminate/pagination "illuminate/pagination")
