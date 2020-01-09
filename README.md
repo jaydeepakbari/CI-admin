@@ -23,7 +23,7 @@ Find file inside database folder and import in your project database
 ### Default Admin Login
 `admin@gmail.com / 111111`
 
-###Credits
+### Credits
 [ingeniasoftware/luthier-ci](https://github.com/ingeniasoftware/luthier-ci "ingeniasoftware/luthier-ci")
 
 [tabler/tabler](https://github.com/tabler/tabler "tabler/tabler")
