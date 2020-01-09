@@ -20,6 +20,6 @@ class Auth{
 
 	public static function check(){
 		self::initClass();
-		return self::$user->id > 0;
+		return (self::$user && self::$user->id) > 0 ? true : false;
 	}
 }

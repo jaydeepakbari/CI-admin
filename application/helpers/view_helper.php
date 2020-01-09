@@ -2,11 +2,11 @@
 class View{
 	function __construct(){}
 
-	public static function load($file, $data = array()){
+	public static function load($file, $data = array(), $layout = 'dashboard'){
 		$ci = &get_instance();
 		$data['content'] = $ci->load->view($file, $data, true);
 
-		$ci->load->view('admin/layout/dashboard', $data);		
+		$ci->load->view('admin/layout/'. $layout, $data);		
 	}
 
 	public static function json($json = array()){

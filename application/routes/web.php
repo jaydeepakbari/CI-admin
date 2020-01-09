@@ -7,7 +7,11 @@ Route::get('/', 'welcome@index')->name('homepage');
 /* BACKEND ROUTES */
 Route::get('/admin/login', 'admin/Authentication@index')->name('admin.login');
 Route::get('/admin/logout', 'admin/Authentication@logout')->name('admin.logout');
-Route::post('/admin/login', 'admin/Authentication/check_login@index')->name('admin.check_login');
+Route::post('/admin/login', 'admin/Authentication@check_login')->name('admin.check_login');
+Route::get('/admin/forgot-password', 'admin/Authentication@forget_form')->name('admin.forget_form');
+Route::post('/admin/forgot-password', 'admin/Authentication@forget_form_check')->name('admin.forget_form_check');
+Route::get('/admin/reset-password/{token}', 'admin/Authentication@reset_password_form')->name('admin.reset_password_form');
+Route::post('/admin/reset-password', 'admin/Authentication@reset_password_check')->name('admin.reset_password_check');
 
 Route::group('admin',['namespace' => 'admin','middleware' => ['CheckIfLogin']], function(){
 	Route::get('/', 'dashboard@index')->name('admin.dashboard');

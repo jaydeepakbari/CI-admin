@@ -1,6 +1,10 @@
-# Codeigniter Admin Panel ( Startup Kit )
+# CI Admin ( Startup Kit )
 
-[![](https://user-images.githubusercontent.com/6220995/72037880-95b78580-32c5-11ea-994c-8165e8a717e6.png)](https://user-images.githubusercontent.com/6220995/72037880-95b78580-32c5-11ea-994c-8165e8a717e6.png)
+CI Admin is Powerfull Codeigniter Admin Panel for starting a new project with Codeigniter Framework. It is developed for custom CodeIgniter projects. It’s cover most common features that needed for nowadays project. It will make your development task more easier then before. We are working hard to create many free features on this project.
+
+The main objective is to speed up web development effort by providing configurable and ready modules. Configurations can be made easily using the Control Panel, or programmatically. Use Admin Lite Admin Panel to create your own web application with the following benefits.
+
+[![](https://user-images.githubusercontent.com/6220995/72045524-4df02880-32dc-11ea-8fec-3d76a7a4f891.png)](https://user-images.githubusercontent.com/6220995/72045524-4df02880-32dc-11ea-8fec-3d76a7a4f891.png)
 
 ### Features
 
@@ -8,12 +12,16 @@
 - Support Route naming conventions 
 - User Login Registration
 - Forget Password 
-
+- Message Helpers (success., info, warning, error)
+- Responsive Design With Bootstrap based HTML template.
+- Pagination
+- Secure Authentication
+- Structured & Clean Code
 
 ### Installation  
 
-        git clone https://github.com/jaydeepakbari/Codeigniter-Admin-Panel.git
-        cd Codeigniter-Admin-Panel
+        git clone https://github.com/jaydeepakbari/CI-admin.git
+        cd CI-admin
         composer install
 
 ### Database SQL
@@ -21,9 +29,9 @@
 Find file inside database folder and import in your project database
 
 ### Default Admin Login
-`admin@gmail.com / 111111`
+`Username : admin@gmail.com Password : 111111`
 
-### Credits
+### Libraries used :
 
 - [ingeniasoftware/luthier-ci](https://github.com/ingeniasoftware/luthier-ci "ingeniasoftware/luthier-ci")
 - [tabler/tabler](https://github.com/tabler/tabler "tabler/tabler")

@@ -55,6 +55,7 @@ class UserController extends CI_Controller {
 			}
 		    
 		    $user->save();
+		    set_message('success', 'User save successfully');
 		    $json['redirect'] = route("admin.user.list");
 		}
 		
@@ -64,6 +65,7 @@ class UserController extends CI_Controller {
 
 	public function destory($user_id){
 		User::where("id",$user_id)->delete();
+		set_message('success', 'User deleted successfully');
 		redirect(route('admin.user.list'));
 	}
 
@@ -73,6 +75,8 @@ class UserController extends CI_Controller {
 		if(is_array($ids) && $ids){
 			User::whereIn("id",$ids)->delete();
 		}
+
+		set_message('success', 'User deleted successfully');
 		redirect(route('admin.user.list'));
 	}
 }

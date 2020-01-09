@@ -40,6 +40,11 @@ function makePaginate(&$query, $config){
 	$query->paginate = $ci->pagination->create_links();
 }
 
+function set_message($type, $message){
+	$ci = &get_instance();
+	$ci->session->set_flashdata($type, $message);
+}
+
 function bcrypt_hash($password, $work_factor = 8){    
     if (! function_exists('openssl_random_pseudo_bytes')) {
         throw new Exception('Bcrypt requires openssl PHP extension');
@@ -67,3 +72,9 @@ function bcrypt_check($password, $stored_hash, $legacy_handler = NULL){
 }
 
 function bcrypt_is_legacy_hash($hash) { return substr($hash, 0, 4) != '$2a$'; }
+
+function token($length_of_string=10){ 
+    $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'; 
+  
+    return substr(str_shuffle($str_result),0, $length_of_string); 
+} 

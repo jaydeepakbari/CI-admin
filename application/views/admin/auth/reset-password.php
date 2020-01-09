@@ -6,28 +6,29 @@
                     <div class="text-center mb-4 mt-4">
                         <img src="<?= base_url('assets/admin/img/logo-black.png') ?>" class="w-50" alt="">
                     </div>
-                    <form class="card" action="<?= route('admin.check_login') ?>" id="login_form" method="post">
-                        <div class="card-body p-6">
-                            <div class="card-title">Login to your account</div>
+                    
+                    <form class="card" action="<?= route('admin.reset_password_check') ?>" id="reset_form" method="post">
+                        <div class="card-body p-5">
+                            <div class="card-title">Reset password</div>
+                            <input type="hidden" name="token" class="form-control" value="<?= $token ?>">
+
                             <div class="mb-2 form-group">
-                                <label class="form-label">Email address</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Enter email" autocomplete="off">
+                                <label class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" placeholder="Enter password">
                             </div>
+
                             <div class="mb-2 form-group">
-                                <a href="<?= route('admin.forget_form') ?>" class="float-right small">I forgot password</a>
-                                <label class="form-label">
-                                    Password
-                                </label>
-                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autocomplete="off">
+                                <label class="form-label">Confirm Password</label>
+                                <input type="password" name="c_password" class="form-control" placeholder="Enter confirm password">
                             </div>
+
                             <div class="form-footer">
-                                <button type="submit" class="btn btn-submit btn-primary btn-block">Sign in</button>
+                                <button type="submit" class="btn btn-submit btn-primary btn-block">Reset Password</button>
                             </div>
                         </div>
                     </form>
                     <div class="text-center text-muted">
-                        Don't have account yet? <a href="./register.html">Sign up</a>
+                        Back to <a href="<?= route('admin.login') ?>">Sign in</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +37,7 @@
 </div>
 
 <script type="text/javascript">
-    $("#login_form").submit(function(){
+    $("#reset_form").submit(function(){
         $this = $(this);
         $.ajax({
             url:$this.attr("action"),
