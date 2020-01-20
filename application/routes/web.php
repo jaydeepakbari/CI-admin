@@ -21,6 +21,14 @@ Route::group('admin',['namespace' => 'admin','middleware' => ['CheckIfLogin']], 
 	Route::get('/user-edit/{id?}', 'UserController@edit_form')->name('admin.user.edit_form');
 	Route::get('/user-delete/{id}', 'UserController@destory')->name('admin.user.destory');
 	Route::post('/user-delete-multiple', 'UserController@destory_multiple')->name('admin.user.destory_multiple');
+
+	Route::get('/settings', 'SettingController@index')->name('admin.settings');
+	Route::post('/settings', 'SettingController@save_settings')->name('admin.save_settings');
+
+	Route::get('/filemanager/{page?}', 'FilemanagerController@index')->name('admin.filemanager.index');
+	Route::post('/filemanager_delete', 'FilemanagerController@delete_photos')->name('admin.filemanager.filemanager_delete');
+	Route::post('/filemanager_upload', 'FilemanagerController@upload_photos')->name('admin.filemanager.filemanager_upload');
+	Route::post('/filemanager_folder', 'FilemanagerController@folder_create')->name('admin.filemanager.filemanager_folder');
 });
 
 

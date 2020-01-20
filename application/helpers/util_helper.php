@@ -4,6 +4,15 @@ function dateFormat($date){
 	return date("d M Y h:i A",strtotime($date));
 }
 
+function endsWith($haystack, $needle){
+    $length = strlen($needle);
+    if ($length == 0) {
+        return true;
+    }
+
+    return (substr($haystack, -$length) === $needle);
+}
+
 function makePaginate(&$query, $config){
 	$limit = $query->perPage();
 	$total = $query->total();

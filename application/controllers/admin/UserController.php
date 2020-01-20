@@ -24,12 +24,12 @@ class UserController extends CI_Controller {
 		$json = array();
 	    $data = $this->input->post(NULL,true);
 
-		$this->form_validation->set_rules('name', 'Name', 'required');
-		$this->form_validation->set_rules('email', 'Email Address', 'required');		
+		$this->form_validation->set_rules('name', 'Name', 'trim|required');
+		$this->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email');		
 		$this->form_validation->set_rules('status', 'Status', 'required');		
 
 		if((int)$user_id == 0 || (isset($data['password']) && $data['password']) ){
-			$this->form_validation->set_rules('password', 'Password', 'required');
+			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 			$this->form_validation->set_rules('c_password', 'Confirm Password', 'required|matches[password]');
 		}
 

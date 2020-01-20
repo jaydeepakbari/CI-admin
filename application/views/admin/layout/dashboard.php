@@ -14,25 +14,31 @@
     <meta name="mobile-web-app-capable" content="yes"/>
     <meta name="HandheldFriendly" content="True"/>
 
+    <?php 
+        $siteSetting = Model\Setting::getSettings('site');
+    ?>
+
+    <base href="<?= base_url() ?>">
+
     <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
-
     <link href="<?= base_url('assets/admin/css/tabler.min.css') ?>" rel="stylesheet"/>
-   
     <link href="<?= base_url('assets/admin/css/app.css') ?>" rel="stylesheet" />
-
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="<?= base_url('assets/admin/js/app.js') ?>"></script>
+    <script type="text/javascript">
+        window['data-placeholder'] = '<?= RImage::resize("placeholder.png",100,100) ?>';
+    </script>
 </head>
 <body class="antialiased">
     <div class="wrapper">
         <aside class="sidebar sidebar-dark">
 
             <a href="<?= route('admin.dashboard') ?>" class="sidebar-brand">
-                <img src="<?= base_url('assets/admin/img/logo.png') ?>" alt="Tabler" class="sidebar-brand-logo sidebar-brand-logo-lg">
+                <img src="<?= RImage::resize($siteSetting['logo_white']->value,30,100) ?>" alt="Tabler" class="sidebar-brand-logo sidebar-brand-logo-lg">
                 <img src="<?= base_url('assets/admin') ?>/static/logo-small.svg" alt="Tabler" class="sidebar-brand-logo sidebar-brand-logo-sm">
             </a>
             <div class="sidebar-content">
@@ -63,6 +69,21 @@
                                 <li class="sidebar-nav-item">
                                     <a  class="sidebar-nav-link" href="<?= route('admin.user.edit_form') ?>">
                                         <span>Create New</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-nav-item">
+                            <a  class="sidebar-nav-link" data-toggle="collapse" data-target="#sidebar-menu-settings">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon nav-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <span class="nav-text">Settings</span>
+                                <span class="sidebar-nav-arrow"></span>
+                            </a>
+                            <ul class="sidebar-subnav collapse" id="sidebar-menu-settings">
+                                <li class="sidebar-nav-item">
+                                    <a  class="sidebar-nav-link" href="<?= route('admin.settings',['group'=>'site']) ?>">
+                                        <span>Site Setting</span>
                                     </a>
                                 </li>
                             </ul>

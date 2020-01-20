@@ -1,0 +1,1 @@
+<code>Other Setting Views->admin->settings->other.php</code>
