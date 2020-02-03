@@ -6,6 +6,8 @@ The main objective is to speed up web development effort by providing configurab
 
 [![](https://user-images.githubusercontent.com/6220995/72045524-4df02880-32dc-11ea-8fec-3d76a7a4f891.png)](https://user-images.githubusercontent.com/6220995/72045524-4df02880-32dc-11ea-8fec-3d76a7a4f891.png)
 
+[![](https://user-images.githubusercontent.com/6220995/73626296-6dc20480-466e-11ea-8ab6-bf817a6557ad.png)](https://user-images.githubusercontent.com/6220995/73626296-6dc20480-466e-11ea-8ab6-bf817a6557ad.png)
+
 ### Features
 
 - Support Laravel equivalent
